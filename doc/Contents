@@ -1,0 +1,18 @@
+March 4, 1996
+
+prms2.1 - documentation files
+
+file name     file contents
+------------  ------------------------------------------------------
+Contents      this file
+versions.doc  description of files that differ by operating system
+
+prms.txt      text version of man page
+prms.doc      describes modifications made to the input formats
+--------------------------------------------------------------------
+
+
+Leavesley, G.H., Lichty, R.W., Troutman, B.M., and Saindon, L.G.,
+   1983, Precipitation-Runoff Modeling System: User's Manual:  U.S.
+   Geological Survey Water-Resources Investigations Report
+   83-4238, 207 p.

@@ -1,0 +1,198 @@
+
+
+
+     prms(1)          U.S. Geological Survey (wrdapp)          prms(1)
+
+
+     NAME
+            prms - Precipitation-Runoff Modeling System
+
+     ABSTRACT
+            PRMS is a modular-design, deterministic, distributed-parameter
+            modeling system developed to evaluate the impacts of various
+            combinations of precipitation, climate, and land use on streamflow,
+            sediment yields, and general basin hydrology.  Basin response to
+            normal and extreme rainfall and snowmelt can be simulated to
+            evaluate changes in water-balance relationships, flow regimes, flood
+            peaks and volumes, soil-water relationships, sediment yields, and
+            ground-water recharge.  Parameter-optimization and sensitivity
+            analysis capabilities are provided to fit selected model parameters
+            and evaluate their individual and joint effects on model output.
+            The modular design provides a flexible framework for continued
+            model-system enhancement and hydrologic-modeling research and
+            development.
+
+     METHOD
+            A watershed is divided into subunits based on such basin
+            characteristics as slope, aspect, elevation, vegetation type, soil
+            type, land use, and precipitation distribution.  Two levels of
+            partitioning are available. The first divides the basin into
+            homogeneous response units (HRU) based on the basin characteristics.
+            Water and energy balances are computed daily for each HRU.  The sum
+            of the responses of all HRU's, weighted on a unit-area basis,
+            produces the daily system response and streamflow for a basin.  A
+            second level of partitioning is available for storm hydrograph
+            simulation.  The watershed is conceptualized as a series of
+            interconnected flow planes and channel segments.  Surface runoff is
+            routed over the flow planes into the channel segments; channel flow
+            is routed through the watershed channel system.  An HRU can be
+            considered the equivalent of a flow plane or it can be delineated
+            into a number of flow planes.
+
+     HISTORY
+            1991 version - Added option to output computed time series to the
+               Watershed Data Management (WDM) file
+
+            1984 version - A WDM file replaces the ISAM file for the time-series
+               data management
+
+            1983 version - Original version
+
+     DATA REQUIREMENTS
+            For daily streamflow computations, a minimum of daily precipitation
+            and daily maximum and minimum air temperature are required.  For
+            snowmelt computations, daily short-wave solar radiation data are
+            recommended.  For areas without snowmelt, daily pan evaporation data
+            can be substituted for temperature data.  For storm hydrograph and
+            sediment computations, short time-interval precipitation,
+            streamflow, and sediment data are needed.  Physical descriptive data
+            on the topography, soils, and vegetation are input for each
+            watershed subunit.  The spatial and temporal variation of
+
+
+
+                                01 May 1996                          1
+
+
+
+
+
+     prms(1)          U.S. Geological Survey (wrdapp)          prms(1)
+
+
+            precipitation, temperature and solar radiation are also needed.  The
+            input time-series data are read from a WDM file.
+
+     OUTPUT OPTIONS
+            The observed (if available) and predicted mean daily discharge for
+            the basin is output in tabular form.  Annual and monthly summaries
+            of precipitation, interception, potential and actual
+            evapotranspiration, and inflows and outflows of the ground water and
+            subsurface reservoirs are available.  The time series available at a
+            monthly time step may also be output at a daily time step along with
+            the available soil moisture, percent snow cover, pack water
+            equivalent, and snowmelt.  Most of the computed daily time series
+            can also be written to the WDM file.  This information is also
+            available for the individual HRU's.  A summary table of observed and
+            predicted peak flows and runoff volumes for each storm period is
+            output in tabular form. The inflow and outflow for user selected
+            overland flow plans and channel segments can be output in tabular
+            form, as "printer" plots, or to the WDM file.
+
+     SYSTEM REQUIREMENTS
+            UNIX-based computers (supported:  Data General AViiON and Sun
+            SPARCstation).
+
+            DOS-based computers having a math coprocessor and 4 mb of memory
+            (supported: IBM-compatible computers with a 386 or greater
+            processor).
+
+            PRMS is written in Fortran.  Generally, it is easily installed on
+            other platforms.
+
+     DOCUMENTATION
+            Leavesley, G.H., Lichty, R.W., Troutman, B.M., and Saindon, L.G.,
+               1983, Precipitation-Runoff Modeling System: User's Manual:  U.S.
+               Geological Survey Water-Resources Investigations Report 83-4238,
+               207 p.
+
+     RELATED DOCUMENTATION
+            Flynn, K.M., Hummel, P.R., Lumb, A.M., and Kittle, J.L., Jr., 1995,
+               User's manual for ANNIE, version 2, a computer program for
+               interactive hydrologic data management:  U.S. Geological Survey
+               Water-Resources Investigations Report 95-4085, 211 p.
+
+     REFERENCES
+            Carey, W.P., and Simon, A., 1984, Physical basis and potential
+               estimation techniques for soil erosion parameters in the
+               Precipitation-Runoff Modeling System (PRMS):  U.S. Geological
+               Survey Water-Resources Investigations Report 82-4218, 32 p.
+
+            Cary, L.E., 1984, Application of the U.S. Geological Survey's
+               Precipitation-Runoff Modeling System to the Prairie Dog Creek
+               basin, Southeastern Montana: U.S. Geological Survey Water-
+               Resources Investigations Report 84-4178, 98 p.
+
+
+
+
+
+                                01 May 1996                          2
+
+
+
+
+
+     prms(1)          U.S. Geological Survey (wrdapp)          prms(1)
+
+
+            Kidd, R.E., and Bossong, C.R., 1987, Application of the
+               precipitation-runoff model in the Warrior Coal Field, Alabama:
+               U.S. Geological Survey Water-Supply Paper 2036, 42 p.
+
+            Kuhn, G., 1989, Application of the U.S. Geological Survey's
+               Precipitation-Runoff Modeling System to Williams Draw and Bush
+               Draw basins, Jackson County, Colorado:  U.S. Geological Survey
+               Water-Resources Investigations Report 88-4013, 38 p.
+
+            Norris, J.M., and Parker, R.S., 1985, Calibration procedure for a
+               daily flow model of small watersheds with snowmelt runoff in the
+               Green River coal region of Colorado:  U.S. Geological Survey
+               Water-Resources Investigations Report 83-4263, 32 p.
+
+            Parker, R.S., and Norris, J.M., 1989, Simulation of streamflow in
+               small drainage basins in the southern Yampa River Basin,
+               Colorado:  U.S. Geological Survey Water-Resources Investigations
+               Report 88-4071, 47 p.
+
+            Puente, C., and Atkins, J.T., 1989, Simulation of rainfall-runoff
+               response in mined and unmined watersheds in coal areas of West
+               Virginia:  U.S. Geological Survey Water-Supply Paper 2298, 48 p.
+
+            Scott, A.G., 1984, Analysis of characteristics of simulated flows
+               from small surface-mined and undisturbed Appalachian watersheds
+               in the Tug Fork basin of Kentucky, Virginia, and West Virginia:
+               U.S. Geological Survey Water-Resources Investigations Report
+               84-4151, 169 p.
+
+     TRAINING
+            Watershed Systems Modeling I (G0083), offered annually at the USGS
+            National Training Center.
+
+     CONTACTS
+            Operation and Distribution:
+               U.S. Geological Survey
+               Hydrologic Analysis Software Support Team
+               Kate Flynn
+               437 National Center
+               Reston, VA 22092
+
+               h2osoft@usgs.gov
+
+            Latest version by anonymous ftp from:
+                  h2o.usgs.gov
+                  /pub/software/surface_water/prms
+
+     SEE ALSO
+            annie - Program to list, table, plot data in a WDM file
+            iowdm - Program to store time-series data in a WDM file
+            wdm - Watershed Data Management system
+
+
+
+
+
+
+                                01 May 1996                          3
+
+

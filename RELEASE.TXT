@@ -1,0 +1,26 @@
+
+
+ Version    Date    Description
+ -------  --------  ---------------------------------------------------------
+   2.1    95/08/15  miscellaneous changes, most notably:
+
+                    include files:  (1) file names changed from upper case to
+                    lower case, (2) SAVE added to all includes, (3) all of the
+                    definition include files (D____.INC) were combined into the
+                    file defin.inc, these files were not actually ever included
+                    in the source
+
+                    When prms was compiled on a Silicon Graphics, problems were
+                    found with some formats and with some variables that needed
+                    to be saved:
+
+                    code group    routine    format #    variable
+                    ----------    -------    --------    --------
+                    datint.f      datin      924
+                    sumallt.f     sumall     510
+                    maint.f       temp                   iftsw
+                    maint.f       timey                  mxjd, mth
+                    maint.f       solrad                 lp
+
+                    In subroutine solrad, added the variable jkeep to
+                    make sure 'j' was defined after the do 20 loop.

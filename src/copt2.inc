@@ -1,0 +1,6 @@
+C
+      COMMON /OPT2/   GU,GUS,HU,HUS
+C
+      REAL GU(20),GUS(20),HU(20),HUS(20)
+C
+      SAVE /OPT2/

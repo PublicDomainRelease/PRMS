@@ -1,0 +1,6 @@
+C
+      COMMON /SVWDM/ DSNDV, WDV
+      INTEGER   DSNDV(8)
+      REAL      WDV(366,8)
+C
+      SAVE /SVWDM/

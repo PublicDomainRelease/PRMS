@@ -1,6 +1,0 @@
-C
-      COMMON /DSM/    BMSA,SMSA
-C
-      REAL BMSA(50),SMSA(50)
-C
-      SAVE /DSM/

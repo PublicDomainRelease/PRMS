@@ -1,7 +1,0 @@
-C
-      COMMON /PAKADJ/ IPKAD,PKFAC
-C
-      INTEGER IPKAD
-      REAL PKFAC(50)
-C
-      SAVE /PAKADJ/

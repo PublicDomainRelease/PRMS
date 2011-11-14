@@ -1,6 +1,0 @@
-C
-      COMMON /UVRT/   UVWY
-C
-      INTEGER UVWY(367)
-C
-      SAVE /UVRT/

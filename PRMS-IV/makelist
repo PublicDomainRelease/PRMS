@@ -3,7 +3,7 @@
 # $Id: makelist 3545 2011-08-08 16:36:42Z rsregan $
 #-------------------------------------------------------------------
 
-MOWSDIR     = /sshome/markstro/prmsLinuxDistribution/3.0.0/64bit/build
+MOWSDIR     = /sshome/markstro/prmsLinuxDistribution/3.0.1/64bit/build
 MMFDIR      = $(MOWSDIR)/mmf/src
 MMFLIB      = $(MOWSDIR)/lib
 PRMSDIR     = $(MOWSDIR)/PRMS-IV/trunk
@@ -15,8 +15,8 @@ BINDIR      = $(MOWSDIR)/bin
 ##########################################################
 ARC		= LINUX
 
-OPTLEVEL	= -g
-#OPTLEVEL	= -O3 -Bstatic
+#OPTLEVEL	= -g
+OPTLEVEL	= -O -Bstatic
 LDFLAGS		=$(OPTLEVEL)
 
 ##########################################################

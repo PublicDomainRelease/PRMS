@@ -3,17 +3,17 @@
 # markstro
 # Tue Jul 26 08:43:10 MST 2005
 #
-# $Id: Makefile 6064 2011-10-27 20:56:21Z markstro $
+# $Id: Makefile 6154 2011-12-13 19:17:49Z markstro $
 #
 
-MOWSDIR  = /sshome/markstro/prmsLinuxDistribution/3.0.0/64bit/build/
-MLIBDIR  = $(MOWSDIR)lib
+include ../../PRMS-IV/makelist
+
 CC       = gcc
 RM       = rm -f
 AR       = ar ruv
 RANLIB   = ranlib
 
-CFLAGS   = -g -Wall -Werror-implicit-function-declaration
+CFLAGS   = -O -Wall -Werror-implicit-function-declaration
 
 SRCS = 	mmf.c parse_args.c alloc_space.c build_lists.c \
 	setup_cont.c decl_control.c control_addr.c \
@@ -39,19 +39,13 @@ MMSOBJS = ${SRCS:.c=.o}
 #
 # Private makefile defines
 #
-MMSLIB = $(MLIBDIR)/libmmf.a
+MMSLIB = $(MMFLIB)/libmmf.a
 
 #
 # Standard Targets for Users
 #
 
 $(MMSLIB): $(MMSOBJS)
-# Create lib directory, if necessary
-	@if [ ! -d $(MLIBDIR) ]   ; then        \
-   	   mkdir $(MLIBDIR) ;                   \
-	   echo  Created directory $(MLIBDIR) ; \
-	fi
-
 	$(AR) $(MMSLIB) $(MMSOBJS)
 	$(RANLIB) $(MMSLIB)
 

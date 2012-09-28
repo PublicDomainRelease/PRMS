@@ -4,7 +4,7 @@
 # Top-level makefile for the PRMS
 #
 #-------------------------------------------------------------------
-# $Id: Makefile 3270 2011-05-24 20:06:13Z rsregan $
+# $Id: Makefile 4787 2012-08-24 21:23:57Z rsregan $
 #-------------------------------------------------------------------
 
 include ./makelist
@@ -22,5 +22,5 @@ standard:
 clean:
 	cd $(MMFDIR); $(MAKE) clean;
 	cd $(PRMSDIR); $(MAKE) clean;
-	$(RM) $(BINDIR)/prmsIV *~
+	$(RM) $(BINDIR)/prms $(BINDIR)/prms *~
 

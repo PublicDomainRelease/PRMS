@@ -2,27 +2,28 @@
 ! Computes the potential evapotranspiration using the Jensen-Haise
 ! formulation (Jensen and others, 1969)
 !***********************************************************************
+      MODULE PRMS_POTET_JH
+      IMPLICIT NONE
+! Declared Parameters
+      REAL, SAVE, ALLOCATABLE :: Jh_coef_hru(:), Jh_coef(:)
+      END MODULE PRMS_POTET_JH
+
       INTEGER FUNCTION potet_jh()
-      USE PRMS_MODULE, ONLY: Process, Nhru, Print_debug, Version_potet_jh, Potet_jh_nc
+      USE PRMS_MODULE, ONLY: Process, Nhru, Version_potet_jh, Potet_jh_nc
       USE PRMS_BASIN, ONLY: Basin_area_inv, Active_hrus, Hru_area, Hru_route_order
       USE PRMS_CLIMATEVARS, ONLY: Basin_potet, Potet, Tavgc, Tavgf, Swrad
       USE PRMS_OBS, ONLY: Nowmonth
+      USE PRMS_POTET_JH
       IMPLICIT NONE
 ! Functions
       INTRINSIC INDEX
       INTEGER, EXTERNAL :: declmodule, declparam, getparam
       EXTERNAL read_error
-! Declared Parameters
-      REAL, SAVE, ALLOCATABLE :: Jh_coef_hru(:), Jh_coef(:)
 ! Local Variables
       INTEGER :: i, j
       REAL :: elh, jhcoef_mon
-      
-      CHARACTER*(*) MODNAME
-      PARAMETER(MODNAME='potet_jh')
-      CHARACTER*(*) PROCNAME
-      PARAMETER(PROCNAME='Potential Evapotranspiration')
-      
+      CHARACTER(LEN=8), PARAMETER :: MODNAME = 'potet_jh'
+      CHARACTER(LEN=26), PARAMETER :: PROCNAME = 'Potential ET'
 !***********************************************************************
       potet_jh = 1
 
@@ -44,22 +45,21 @@
 
 !******Declare parameters
       ELSEIF ( Process(:4)=='decl' ) THEN
-        Version_potet_jh = '$Id: potet_jh.f90 4077 2012-01-05 23:46:06Z rsregan $'
-        Potet_jh_nc = INDEX( Version_potet_jh, ' $' ) + 1
-        IF ( Print_debug>-1 ) THEN
-          IF ( declmodule(MODNAME, PROCNAME, Version_potet_jh(:Potet_jh_nc))/=0 ) STOP
-        ENDIF
+        Version_potet_jh = '$Id: potet_jh.f90 4407 2012-04-19 23:45:01Z rsregan $'
+        Potet_jh_nc = INDEX( Version_potet_jh, 'Z' )
+        i = INDEX( Version_potet_jh, '.f90' ) + 3
+        IF ( declmodule(Version_potet_jh(6:i), PROCNAME, Version_potet_jh(i+2:Potet_jh_nc))/=0 ) STOP
 
         ALLOCATE ( Jh_coef(12) )
         IF ( declparam(MODNAME, 'jh_coef', 'nmonths', 'real', &
              '0.014', '0.005', '0.060', &
-             'Monthly air temp coefficient - Jensen-Haise', &
+             'Monthly air temperature coefficient - Jensen-Haise', &
              'Monthly (January to December) air temperature coefficient used in Jensen-Haise potential ET computations', &
              'per degrees F')/=0 ) CALL read_error(1, 'jh_coef')
         ALLOCATE ( Jh_coef_hru(Nhru) )
         IF ( declparam(MODNAME, 'jh_coef_hru', 'nhru', 'real', &
              '13.0', '5.0', '20.0', &
-             'HRU air temp coefficient - Jensen-Haise', &
+             'HRU air temperature coefficient - Jensen-Haise', &
              'Air temperature coefficient used in Jensen-Haise potential ET computations for each HRU', &
              'degrees F')/=0 ) CALL read_error(1, 'jh_coef_hru')
 

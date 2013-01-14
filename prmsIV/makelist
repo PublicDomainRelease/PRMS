@@ -1,0 +1,57 @@
+
+#-------------------------------------------------------------------
+# $Id: makelist 5150 2012-12-19 21:33:33Z rsregan $
+#-------------------------------------------------------------------
+
+MOWSDIR     = /sshome/markstro/prmsLinuxDistribution/3.0.4/64bit/build/PRMS_SVN
+MMFDIR      = $(MOWSDIR)/mmf/trunk
+PRMSDIR     = $(MOWSDIR)/prmsIV
+LIBDIR      = $(PRMSDIR)/lib
+PRMSTRUNK   = $(PRMSDIR)/trunk
+PRMSBRANCH  = $(PRMSDIR)/branch
+BINDIR      = $(PRMSDIR)/bin
+PRMSBASE    = $(LIBDIR)/libprmsbase.a
+#MMFLIB      = $(LIBDIR)/libmmf.a
+MMFLIB      = /sshome/markstro/prmsLinuxDistribution/3.0.4/64bit/build/PRMS_SVN/lib/libmmf.a
+
+#########################################################
+# Configure tags for each system
+##########################################################
+ARC		= LINUX
+
+#OPTLEVEL	= -g
+OPTLEVEL	= -O -Bstatic
+LDFLAGS		=$(OPTLEVEL)
+
+##########################################################
+# Define the Fortran compile flags
+##########################################################
+#FFLAGS= $(OPTLEVEL) -fbounds-check -Wall -fno-second-underscore
+FFLAGS= $(OPTLEVEL) -Wall -fno-second-underscore -ffixed-line-length-0
+FC		= gfortran
+
+##########################################################
+# Define the C compile flags
+# -D_UF defines UNIX naming conventions for mixed language compilation.
+##########################################################
+CFLAGS		= $(OPTLEVEL) -D$(ARC) -D_UF
+CC		= gcc
+
+##########################################################
+# Define the libraries
+##########################################################
+MATHLIB		= -lm
+GCLIB		= -lgfortran -lgcc $(MATHLIB)
+FLIBS    = $(GCLIB)
+
+##########################################################
+# Unix system commands
+##########################################################
+RM		= rm -f
+AR  		= ar ruv
+RANLIB		= ranlib
+MAKE		= make
+LN		= ln -s
+CD		= cd
+CP		= cp
+

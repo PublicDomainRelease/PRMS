@@ -6,7 +6,7 @@
 # $Id: Makefile 6566 2014-07-11 15:50:51Z markstro $
 #
 
-MOWSDIR  = /sshome/markstro/prmsLinuxDistribution/4.0.0/build/
+MOWSDIR  = /sshome/markstro/prmsLinuxDistribution/4.0.1/build/
 MLIBDIR  = $(MOWSDIR)/lib
 CC       = gcc
 RM       = rm -f
